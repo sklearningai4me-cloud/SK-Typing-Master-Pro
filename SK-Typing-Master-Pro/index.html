@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TypeMaster Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 50px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #4361ee;
+        }
+        button {
+            background: #4361ee;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 TypeMaster Pro</h1>
+        <p>Professional Typing Tutor - 100+ Lessons</p>
+        <p>Works 100% Offline • Mobile Friendly</p>
+        
+        <button onclick="startPractice()">Start Practice</button>
+        <button onclick="viewLessons()">View Lessons</button>
+        <button onclick="showStats()">View Stats</button>
+        
+        <div id="output" style="margin-top: 20px;"></div>
+    </div>
+    
+    <script>
+        function startPractice() {
+            document.getElementById('output').innerHTML = 
+                '<h3>Starting Practice...</h3><p>WPM: 0 | Accuracy: 100%</p>';
+        }
+        function viewLessons() {
+            document.getElementById('output').innerHTML = 
+                '<h3>120+ Lessons Available</h3><p>1. Beginner Typing<br>2. Speed Building<br>3. Accuracy Training</p>';
+        }
+        function showStats() {
+            document.getElementById('output').innerHTML = 
+                '<h3>Your Statistics</h3><p>Best WPM: 45<br>Average: 32<br>Total Practice: 2 hours</p>';
+        }
+    </script>
+
+    <div class="practice-stats">
+    <div class="stat-box">
+        <div class="stat-label">WPM</div>
+        <div class="stat-value" id="current-wpm">0</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-label">Accuracy</div>
+        <div class="stat-value" id="current-accuracy">100%</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-label">Time</div>
+        <div class="stat-value" id="current-time">1:00</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-label">Errors</div>
+        <div class="stat-value" id="current-errors">0</div>
+    </div>
+    </div>
+
+    <div class="typing-container">
+    <div class="text-display" id="text-display">
+        <!-- Lesson text will appear here -->
+    </div>
+    <div class="input-container">
+        <textarea 
+            id="typing-input" 
+            placeholder="Start typing here..."
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+        ></textarea>
+    </div>
+    </div>
+
+    <div class="progress-section">
+    <div class="progress-info">
+        <div class="progress-label">
+            <span>Progress</span>
+            <span id="progress-percent">0%</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+    </div>
+    </div>
+
+    <div class="control-buttons">
+    <button onclick="TypeMaster.previousLesson()" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> Previous
+    </button>
+    <button onclick="TypeMaster.resetPractice()" class="btn-secondary">
+        <i class="fas fa-redo"></i> Reset
+    </button>
+    <button onclick="TypeMaster.startPractice()" class="btn-primary">
+        <i class="fas fa-play"></i> Start
+    </button>
+    <button onclick="TypeMaster.pausePractice()" class="btn-secondary">
+        <i class="fas fa-pause"></i> Pause
+    </button>
+    <button onclick="TypeMaster.nextLesson()" class="btn-primary">
+        Next <i class="fas fa-arrow-right"></i>
+    </button>
+</div>
+
+</body>
+</html>
